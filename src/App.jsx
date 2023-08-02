@@ -1,13 +1,14 @@
 import React from 'react'
 import {Routes,Route} from "react-router-dom";
 import HomePage from './pages/HomePage';
-import RegisterPage from './pages/RegisterPage';
+
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import WishlistPage from './pages/WishlistPage';
 import NotFound404 from './pages/NotFound404';
 import MainLayout from './layouts/MainLayout';
 import "./App.css"
+import RegisterPage from './pages/RegisterPage/RegisterPage';
 function App() {
   return (
     <div>
