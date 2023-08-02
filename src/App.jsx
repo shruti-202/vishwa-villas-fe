@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import WishlistPage from './pages/WishlistPage';
 import NotFound404 from './pages/NotFound404';
 import MainLayout from './layouts/MainLayout';
+import "./App.css"
 function App() {
   return (
     <div>
