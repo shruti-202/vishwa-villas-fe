@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #03045e;
-  --secondary-color: #023e8a;
-  --ternary-color: #ffffff;
+  --primary-color: #8b2fc9;
+  --secondary-color: #ab51e3;
+  --ternary-color: #03071e;
+  --dark-blue: #310055;
+  --light-white: #fdfffc;
   --dark-black: #000000;
-  --light-black: #565656;
-  --light-blue: #4285ea
 }
 
 @media only screen and (max-width: 800px) {
