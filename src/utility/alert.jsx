@@ -3,30 +3,30 @@ import { enqueueSnackbar } from "notistack";
 export const successAlert = (message) => {
   enqueueSnackbar(message, {
     variant: "success",
-    anchorOrigin: { horizontal: "bottom", vertical: "right" },
+    anchorOrigin:{ vertical: "top", horizontal: "right" },
   });
 };
 export const errorAlert = (message) => {
   enqueueSnackbar(message, {
     variant: "error",
-    anchorOrigin: { horizontal: "bottom", vertical: "right" },
+    anchorOrigin: { vertical: "top", horizontal: "right" },
   });
 };
 export const warningAlert = (message) => {
   enqueueSnackbar(message, {
     variant: "warning",
-    anchorOrigin: { horizontal: "right", vertical: "top" },
+    anchorOrigin: { vertical: "top", horizontal: "right" },
   });
 };
 export const infoAlert = (message) => {
   enqueueSnackbar(message, {
     variant: "info",
-    anchorOrigin: { horizontal: "right", vertical: "top" },
+    anchorOrigin: { vertical: "top", horizontal: "right" },
   });
 };
 export const defaultAlert = (message) => {
   enqueueSnackbar(message, {
     variant: "default",
-    anchorOrigin: { horizontal: "right", vertical: "top" },
+    anchorOrigin: { vertical: "top", horizontal: "right" },
   });
 };
