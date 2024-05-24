@@ -1,0 +1,23 @@
+.login-page{
+    height:calc(100vh - 100px);
+    display:flex;
+    align-items: center;
+
+}
+.login-container{
+    max-width:350px;
+    margin: auto;
+    padding:10px;
+    width:100%;
+}
+.login-form{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding:20px 10px;
+    border-radius: 14px;
+}
+.login-form h1{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
