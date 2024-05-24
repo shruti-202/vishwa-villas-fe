@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./RegisterPage.css";
 import { useRef } from "react";
 import { errorAlert, successAlert } from "../../utility/alert";
 import { TextField, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 function RegisterPage() {
+  const [redirect, setRedirect] = useState(false)
   const name = useRef();
   const phone = useRef();
   const email = useRef();
@@ -43,6 +44,10 @@ function RegisterPage() {
       errorAlert(data.error, 'error')
     }
   };
+
+  if (redirect) {
+   return <Navigate to={"/login"}/>
+  }
 
   return (
     <div className="register-page">
@@ -99,7 +104,7 @@ function RegisterPage() {
             />
             <Button
               variant="contained"
-              sx={{ marginTop: "20px", width: "100%" , backgroundColor: "var(--primary-color)",
+              sx={{ marginTop: "10px", width: "100%" , backgroundColor: "var(--primary-color)",
               color: "var(--ternary-color)",
               "&:hover": {
                 backgroundColor: "var(--secondary-color)",
