@@ -3,9 +3,29 @@ import "./Header.css";
 import Logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../context/UserContext";
+import { errorAlert, successAlert } from "../../../utility/alert";
 
 function Header() {
-  const { userInfo } = useContext(UserContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
+
+  const logoutHandler = async () => {
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_URL}/api/v1/auth/logout`,
+      {
+        method: "POST",
+        credentials: "include",
+      }
+    );
+    setUserInfo(null);
+
+    const data = await response.json();
+    if (response.ok) {
+      successAlert(data.success, "success");
+      setUserInfo(data.data);
+    } else {
+      errorAlert(data.error, "error");
+    }
+  };
   return (
     <header>
       <div className="header-container">
@@ -20,7 +40,7 @@ function Header() {
             {userInfo ? (
               <>
                 <Link to="/create">Create Post</Link>
-                <Link>Log Out</Link>
+                <Link onClick={logoutHandler}>Log Out</Link>
               </>
             ) : (
               <>
