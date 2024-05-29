@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Header.css";
 import Logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -26,6 +26,15 @@ function Header() {
       errorAlert(data.error, "error");
     }
   };
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/auth/profile`,{
+      credentials:'include'
+    })
+    .then (res => res.json())
+    .then(data => setUserInfo(data.data))
+  },[])
+
   return (
     <header>
       <div className="header-container">
