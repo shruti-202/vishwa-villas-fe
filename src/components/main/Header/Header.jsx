@@ -48,7 +48,7 @@ function Header() {
           <div className="header-right-login">
             {userInfo ? (
               <>
-                <Link to="/create">Create Post</Link>
+                <Link to="/create">List My Property</Link>
                 <Link onClick={logoutHandler}>Log Out</Link>
               </>
             ) : (

@@ -1,14 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import WishlistPage from "./pages/WishlistPage";
 import NotFound404 from "./pages/NotFound404";
 import MainLayout from "./layouts/MainLayout";
+import CreateAddPage from "./pages/CreateAddPage/CreateAddPage";
+
 import "./App.css";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
+
+
+
 function App() {
   return (
     <div>
@@ -19,6 +23,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/create" element={<CreateAddPage/>}/>
           <Route path="*" element={<NotFound404 />} />
         </Route>
       </Routes>
