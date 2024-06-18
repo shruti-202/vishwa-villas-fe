@@ -9,6 +9,7 @@ import NotFound404 from "./pages/NotFound404";
 import MainLayout from "./layouts/MainLayout";
 import CreateAddPage from "./pages/CreateAddPage/CreateAddPage";
 import "./App.css";
+import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/create" element={<CreateAddPage />} />
+          <Route path='/item/:itemId' element={<ItemDetailPage/>}/>
           <Route path="*" element={<NotFound404 />} />
         </Route>
       </Routes>

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import { itemDateFormatter } from "../../utility/DateUtils";
+import { numberToCommaString } from "../../utility/numberUtils";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [itemList, setItemList] = useState([]);
@@ -76,24 +78,26 @@ const ItemCard = ({
 }) => {
   return (
     <div className="item-card-container">
-      <div className="item-card">
-        <div className="item-card-imgs">
-          {imgList.length > 0 ? (
-            imgList.map((img) => <img src={img} />)
-          ) : (
-            <> No Image</>
-          )}
+      <Link to={`/item/${id}`}>
+        <div className="item-card">
+          <div className="item-card-imgs">
+            {imgList.length > 0 ? (
+              imgList.map((img) => <img src={img} />)
+            ) : (
+              <> No Image</>
+            )}
+          </div>
+          <div className="img-card-body">
+            <div className="img-card-price">₹ {numberToCommaString(price)}</div>
+            <div className="img-card-title">{title}</div>
+            <div className="img-card-location">{location}</div>
+          </div>
+          <div className="img-card-footer">
+            <div>{listType}</div>
+            <div>{itemDateFormatter(createdAt)}</div>
+          </div>
         </div>
-        <div className="img-card-body">
-          <div className="img-card-price">₹ {price}</div>
-          <div className="img-card-title">{title}</div>
-          <div className="img-card-location">{location}</div>
-        </div>
-        <div className="img-card-footer">
-          <div>{listType}</div>
-          <div>{itemDateFormatter(createdAt)}</div>
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };
