@@ -6,7 +6,6 @@
   display: flex;
   gap: 20px;
   min-height: calc(100vh - 100px);
-  background-color: var(--bg-color);
 }
 .item-detail-imgs,
 .item-detail-body {
@@ -33,7 +32,6 @@
   margin-bottom: 10px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  background-color: var(--form-container);
   color: var(--text-color);
 }
 .item-detail-price {
