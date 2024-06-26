@@ -82,7 +82,7 @@ const ItemCard = ({
         <div className="item-card">
           <div className="item-card-imgs">
             {imgList.length > 0 ? (
-              imgList.map((img) => <img src={img} />)
+              imgList.map((img, index) => <img key ={index} src={img} />)
             ) : (
               <> No Image</>
             )}
