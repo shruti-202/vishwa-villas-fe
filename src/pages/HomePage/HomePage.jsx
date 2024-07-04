@@ -72,7 +72,7 @@ const ItemCard = ({
   title,
   price,
   location,
-  imgList = [],
+  imgList ,
   listType,
   createdAt,
 }) => {
@@ -81,7 +81,7 @@ const ItemCard = ({
       <Link to={`/item/${id}`}>
         <div className="item-card">
           <div className="item-card-imgs">
-            {imgList.length > 0 ? (
+            {imgList?.length > 0 ? (
               imgList.map((img, index) => <img key ={index} src={img} />)
             ) : (
               <> No Image</>

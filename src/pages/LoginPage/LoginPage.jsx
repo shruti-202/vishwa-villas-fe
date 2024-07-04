@@ -59,7 +59,7 @@ function LoginPage() {
               id="username"
               label="User Name"
               variant="outlined"
-              autoComplete="true"
+              autoComplete="off"
               inputRef={username}
             />
             <TextField
@@ -69,7 +69,7 @@ function LoginPage() {
               label="Password"
               variant="outlined"
               type="password"
-              autoComplete="true"
+              autoComplete="off"
               inputRef={password}
             />
             <Button
