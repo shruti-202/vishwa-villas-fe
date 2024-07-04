@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import Loading from "../../components/util/Loading";
 import "./ItemDetailPage.css";
 import { itemDateFormatter } from "../../utility/DateUtils";
@@ -27,8 +27,8 @@ function ItemDetailPage() {
         return response.json();
       })
       .then((data) => {
-        if (data.data) {
-          setItemDetail(data.data);
+        if (data?.data) {
+          setItemDetail(data?.data);
         } else {
         }
       });
@@ -54,12 +54,12 @@ function ItemDetailPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.success) {
-          successAlert(data.success, "success");
+        if (data?.success) {
+          successAlert(data?.success, "success");
           setDisableInterestBtn(true);
         }
-        if (data.error) {
-          errorAlert(data.error, "error");
+        if (data?.error) {
+          errorAlert(data?.error, "error");
           setDisableInterestBtn(true);
         }
       });
@@ -92,41 +92,47 @@ function ItemDetailPage() {
           </div>
         </div>
         <div className="item-detail-author">
-          <div className="item-detail-author-name">
-            {itemDetail?.author?.name}
-          </div>
-          <div className="item-detail-author-contact">
-            {disableInterestBtn ? (
-              <Button
-                variant="contained"
-                disabled
-                sx={{
-                  backgroundColor: "var(--primary-color)",
-                  color: "var(--ternary-color)",
-                  "&:hover": {
-                    backgroundColor: "var(--secondary-color)",
-                  },
-                }}
-              >
-                Send Interest
-              </Button>
-            ) : (
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "var(--primary-color)",
-                  color: "var(--ternary-color)",
-                  "&:hover": {
-                    backgroundColor: "var(--secondary-color)",
-                  },
-                }}
-                type="submit"
-                onClick={handleContact}
-              >
-                Send Interest
-              </Button>
-            )}
-          </div>
+          {itemDetail?.edit ? (
+            <>
+            <Link to={'/edit/' + itemId}>
+            <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "var(--primary-color)",
+                    color: "var(--ternary-color)",
+                    "&:hover": {
+                      backgroundColor: "var(--secondary-color)",
+                    },
+                  }}
+                >
+                  Edit
+                </Button>
+            </Link>
+            
+            </>
+          ) : (
+            <>
+              <div className="item-detail-author-name">
+                {itemDetail?.author?.name}
+              </div>
+              <div className="item-detail-author-contact">
+                <Button
+                  variant="contained"
+                  disabled={disableInterestBtn}
+                  onClick={handleContact}
+                  sx={{
+                    backgroundColor: "var(--primary-color)",
+                    color: "var(--ternary-color)",
+                    "&:hover": {
+                      backgroundColor: "var(--secondary-color)",
+                    },
+                  }}
+                >
+                  {disableInterestBtn ? `Interested` : `Send Interested`}
+                </Button>
+              </div>
+            </>
+          )}
         </div>
         <div className="item-detail-description">
           {itemDetail.description.split("\n").map((line, index) => (
