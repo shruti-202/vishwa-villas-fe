@@ -10,6 +10,7 @@ import MainLayout from "./layouts/MainLayout";
 import CreateAddPage from "./pages/CreateAddPage/CreateAddPage";
 import "./App.css";
 import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
+import EditAdPage from "./pages/EditAddPage/EditAddPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/create" element={<CreateAddPage />} />
           <Route path='/item/:itemId' element={<ItemDetailPage/>}/>
+          <Route path= '/edit/:itemId' element ={<EditAdPage/>}/>
           <Route path="*" element={<NotFound404 />} />
         </Route>
       </Routes>
