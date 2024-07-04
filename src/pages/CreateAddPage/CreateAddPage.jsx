@@ -29,7 +29,7 @@ Project Name: `;
 function CreateAddPage() {
   const [redirectToHome, setRedirectToHome] = useState(false)
   const [imagePaths, setImagePath] = useState([]);
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState(null);
   const title = useRef();
   const price = useRef();
   const location = useRef();
@@ -44,7 +44,6 @@ function CreateAddPage() {
       for (const file of event.target.files) {
         imagePathList.push(URL.createObjectURL(file));
       }
-      console.log(imagePathList);
       setImagePath(imagePathList);
     }
   };
@@ -59,13 +58,13 @@ function CreateAddPage() {
     const imgListVal = imgList.current;
     const listTypeVal = listType.current;
 
-    if (!listTypeVal) {
-      errorAlert('Please select the list type', 'error')
-      return
-    }
     if (!files.length) {
       errorAlert('Please upload the images', 'error');
       return;
+    }
+    if (!listTypeVal) {
+      errorAlert('Please select the list type', 'error')
+      return
     }
     if (!titleVal) {
       errorAlert("Please enter the Title","error");
@@ -87,18 +86,18 @@ function CreateAddPage() {
       errorAlert('description length should be less than 1000 characters', 'error')
       return
     } 
-    if (files.length > 10) {
+    if (files?.length > 10) {
       errorAlert("You can upload maximum 10 images", "error");
       return;
     }
 
-    //files upload
+    // files upload
     for(const file of files) {
       const fileExt = file.name.split('.').pop();
       const randomFileName = `${uuidV4()}.${fileExt}`;
       const storageRef = ref(storage, `/ad-img/${randomFileName}`);
-      const upload = uploadBytesResumable(storageRef, files[0]);
-      imgList.current.push(`https://firebasestorage.googleapis.com/v0/b/vishwa-villas-b09e0.appspot.com/o/ad-img%2F${randomFileName}?alt=media&token=0a95dfd4-c4d1-44ae-a9d8-b9201d64d4bb`)
+      const upload = uploadBytesResumable(storageRef, file);
+      imgList.current.push(`https://firebasestorage.googleapis.com/v0/b/vishwa-villas-4ad0d.appspot.com/o/ad-img%2F${randomFileName}?alt=media&token=f7a04072-28eb-4d67-921c-97b46ef16e03`)
     }
 
     const response = await fetch(
@@ -137,7 +136,7 @@ function CreateAddPage() {
     <div className="create-add-page">
       <div className="create-add-container">
         <div className="create-add-form">
-          <h1>List My Property</h1>
+          <h2 className="create-add-heading">List My Property</h2>
           <form onSubmit={submitAd}>
           <FormLabel
               id="demo-row-radio-buttons-group-label"
@@ -229,19 +228,23 @@ function CreateAddPage() {
 }
 
 function CreateAddImageGallery({ imagePaths }) {
-  return (
-    <>
-      {imagePaths && (
-        <div className="create-add-img-container">
-          {imagePaths.map((imgPath, index) => (
-            <div className="create-add-img" key={index}>
-              <img src={imgPath} alt="" />
-            </div>
-          ))}
-        </div>
-      )}
-    </>
-  );
+  if (imagePaths) {
+    return (
+      <>
+        {imagePaths && (
+          <div className="create-add-img-container">
+            {imagePaths.map((imgPath, index) => (
+              <div className="create-add-img" key={index}>
+                <img src={imgPath} alt="" />
+              </div>
+            ))}
+          </div>
+        )}
+      </>
+    );
+
+  }
+ 
 }
 
 export default CreateAddPage;
