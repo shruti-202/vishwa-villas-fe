@@ -1,6 +1,6 @@
 :root {
   --primary-color: #8b2fc9;
-  --secondary-color: #ab51e3;
+  --secondary-color: #c086e4;
   --ternary-color: #03071e;
   --dark-blue: #310055;
   --light-white: #fdfffc;
@@ -9,33 +9,21 @@
   --form-container: #494949;
 }
 
-.loading{
+.loading {
   width: 100%;
   height: 100vh;
 }
 
 .loading-container {
-  position:fixed;
-  top:0;
-  width:100%;
-  height:100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .loading-container img {
-  width:300px;
-}
-
-@media only screen and (max-width: 800px) {
-  .header-left-brand h2 {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  footer {
-    display: none;
-  }
+  width: 300px;
 }
