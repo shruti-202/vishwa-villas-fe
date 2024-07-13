@@ -1,0 +1,105 @@
+.profile {
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.profile-container {
+  width: 100%;
+  padding-top: 50px;
+}
+.profile-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.profile-images {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  border-radius: 50%;
+  color: var(--dark-black);
+  background-color: var(--secondary-color);
+}
+.profile-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--dark-black);
+}
+.profile-email,
+.profile-phone {
+  font-size: 12px;
+  color: var(--form-text);
+  margin-bottom: 4px;
+}
+.settings {
+  margin-bottom: 20px;
+}
+.settings-header {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px;
+  font-size: 14px;
+}
+.profile-ad-header {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile-ad-item {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.profile-ad-item-img {
+  width: 100px;
+  height: 100px;
+}
+.profile-ad-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.profile-ad-item-right {
+  width: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.profile-ad-item-header {
+  font-weight: 500;
+  color: var(--dark-black);
+  font-size: 14px;
+}
+.profile-ad-item-location {
+  font-size: 12px;
+  color: var(--form-text);
+}
+.profile-ad-item-price-type {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--form-text);
+}
