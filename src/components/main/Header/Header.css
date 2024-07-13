@@ -43,3 +43,15 @@ header {
 .header-right-login a:hover {
   border-bottom: 1px solid var(--dark-black);
 }
+
+@media only screen and (max-width: 800px) {
+  .header-left-brand h2 {
+    display: none;
+  }
+  .header-container {
+    justify-content: space-between;
+  }
+  .header-right {
+    display: none;
+  }
+}

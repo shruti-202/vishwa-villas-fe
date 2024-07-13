@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import Logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -27,14 +27,6 @@ function Header() {
     }
   };
 
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/auth/profile`,{
-      credentials:'include'
-    })
-    .then (res => res.json())
-    .then(data => setUserInfo(data.data))
-  },[])
-
   return (
     <header>
       <div className="header-container">
@@ -49,6 +41,7 @@ function Header() {
             {userInfo ? (
               <>
                 <Link to="/create">List My Property</Link>
+                <Link to="/profile">Profile</Link>
                 <Link onClick={logoutHandler}>Log Out</Link>
               </>
             ) : (
