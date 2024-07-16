@@ -4,14 +4,21 @@ import { itemDateFormatter } from "../../utility/DateUtils";
 import { numberToCommaString } from "../../utility/numberUtils";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import Filter from "../../components/pages/HomePage/Filter";
 
 function HomePage() {
   const [itemList, setItemList] = useState([]);
+  const [filters, setFilters] = useState({});
   const [pageNo, setPageNo] = useState(1);
   const [noMoreItems, setNoMoreItems] = useState(false);
 
+  const getFilterQuery = () => {
+    return Object.keys(filters).length > 0 ? '&' + (Object.keys(filters).map(key => `${key}=${filters[key]}`).join('&')) : '';
+  }
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/item?page=${pageNo}`)
+    setPageNo(1);
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/item?page=1${getFilterQuery()}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.data.length > 0) {
@@ -20,10 +27,10 @@ function HomePage() {
           setNoMoreItems(true);
         }
       });
-  }, []);
+  }, [filters]);
 
   const getNewPage = () => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/item?page=${pageNo + 1}`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/v1/item?page=${pageNo + 1}${getFilterQuery()}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.data.length > 0) {
@@ -37,6 +44,7 @@ function HomePage() {
 
   return (
     <>
+     <Filter filters={filters} setFilters={setFilters}/>
       <div className="item-list">
         {itemList.length > 0 &&
           itemList.map((item, key) => <ItemCard key={item.id} {...item} />)}
