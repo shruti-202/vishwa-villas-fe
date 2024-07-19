@@ -17,8 +17,8 @@ $ npm run dev
 - User Profile
 - Posting properties
 - Post Detail Page
-- Pagination to handle load of huge data
-- Email integration to notify owner regarding interest on their property
+- Pagination: Implemented pagination to efficiently manage large data sets.
+- Email Integration: Integrated email notifications to alert property owners of interest in their listings.
 
 ## Built with :
 - React JS
