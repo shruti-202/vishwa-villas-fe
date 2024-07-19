@@ -1,5 +1,6 @@
 # Vishwa-Villas
-A property listing platform for buy, sell and renting of Houses, Apartments & Bungalow.
+
+A property listing platform for buying, selling, and renting houses, apartments, and bungalows.
 
 ## How to install and run locally ?
 ```
