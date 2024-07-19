@@ -1,8 +1,35 @@
-# React + Vite
+# Vishwa-Villas
+A property listing platform for buy, sell and renting of Houses, Apartments & Bungalow.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to install and run locally ?
+```
+$ git clone https://github.com/shruti-202/vishwa-villas-fe.git
+$ cd vishwa-villas-fe
+$ npm install
+$ npm run dev
+```
 
-Currently, two official plugins are available:
+## Features :
+- Property Listing
+- User Registration  
+- User Login
+- User Profile
+- Posting properties
+- Post Detail Page
+- Pagination to handle load of huge data
+- Email integration to notify owner regarding interest on their property
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built with :
+- React JS
+- React Context API
+- React Router v6
+- Vanilla CSS
+- Material UI Component Library
+- Firebase Integration for Data Storage
+- Express.js
+- Mongodb
+- vercel for frontend deployment
+- render for backend deployment
+
+## Live Link:
+- https://vishwa-villas.vercel.app/
